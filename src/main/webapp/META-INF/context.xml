@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Context>
+<Context>
+	<Resource
+		name="jdbc/schedule"
+		driverClassName="org.postgresql.Driver"
+		url="jdbc:postgresql://localhost:5432/schedule_db"
+		username="scheduleuser"
+		password="schedulepass"
+		auth="Container"
+		type="javax.sql.DataSource"
+		maxActive="2 0"
+		maxIdle="5"
+		maxWait="10000"
+	/>
+</Context>

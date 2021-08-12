@@ -1,0 +1,10 @@
+# .gitignore
+Thumbs.db
+build.xml
+*.log
+*.bak
+*.bk
+*.tmp
+temp/
+tmp/
+build/
