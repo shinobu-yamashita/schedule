@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="schedule">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+    <property name="tomcat_home" value="C:\Program Files\Apache Software Foundation\Tomcat 8.5"/>
+              	
+    <path id="Server Runtime [Tomcat8 (Java8)].libraryclasspath">
+        <pathelement location="${tomcat_home}/lib/annotations-api.jar"/>
+        <pathelement location="${tomcat_home}/lib/catalina-ant.jar"/>
+        <pathelement location="${tomcat_home}/lib/catalina-ha.jar"/>
+        <pathelement location="${tomcat_home}/lib/catalina-storeconfig.jar"/>
+        <pathelement location="${tomcat_home}/lib/catalina-tribes.jar"/>
+        <pathelement location="${tomcat_home}/lib/catalina.jar"/>
+        <pathelement location="${tomcat_home}/lib/ecj-4.6.3.jar"/>
+        <pathelement location="${tomcat_home}/lib/el-api.jar"/>
+        <pathelement location="${tomcat_home}/lib/jasper-el.jar"/>
+        <pathelement location="${tomcat_home}/lib/jasper.jar"/>
+        <pathelement location="${tomcat_home}/lib/jaspic-api.jar"/>
+        <pathelement location="${tomcat_home}/lib/jsp-api.jar"/>
+        <pathelement location="${tomcat_home}/lib/servlet-api.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-api.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-coyote.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-dbcp.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-i18n-de.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-i18n-es.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-i18n-fr.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-i18n-ja.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-i18n-ko.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-i18n-ru.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-i18n-zh-CN.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-jdbc.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-jni.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-util-scan.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-util.jar"/>
+        <pathelement location="${tomcat_home}/lib/tomcat-websocket.jar"/>
+        <pathelement location="${tomcat_home}/lib/websocket-api.jar"/>
+    </path>
+    <path id="Web App ライブラリー.libraryclasspath">
+        <pathelement location="src/main/webapp/WEB-INF/lib/postgresql-42.2.23.jar"/>
+    </path>
+    <path id="EAR ライブラリー.libraryclasspath"/>
+    <path id="schedule.classpath">
+        <pathelement location="build/classes"/>
+        <path refid="Server Runtime [Tomcat8 (Java8)].libraryclasspath"/>
+        <path refid="Web App ライブラリー.libraryclasspath"/>
+        <path refid="EAR ライブラリー.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <copy includeemptydirs="false" todir="build/classes">
+            <fileset dir="src/main/java">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="build/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project,make-deploy-files,dist" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="build/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/main/java"/>
+            <classpath refid="schedule.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+              	
+<!-- ↓↓↓ ■Add 資源収集■ ↓↓↓ -->              	
+	<target name="make-deploy-files">
+		<mkdir dir="build/deploy"/>
+		<copy todir="build/deploy">
+			<fileset dir="src/main/Webapp"/>
+		</copy>
+		<copy todir="build/deploy/WEB-INF/classes">
+			<fileset dir="build/classes"/>
+		</copy>
+	</target>
+<!-- ↑↑↑ ■Add 資源収集■ ↑↑↑ -->              	
+             	
+              	
+<!-- ↓↓↓ ■Add WARファイル作成■ ↓↓↓ -->              	
+	<!-- warファイルの設定 -->
+	<property name="war.home" value="build/war" />
+	<property name="web-app.name" value="schedule" />
+
+	<!-- jarタスクによってwarファイルを作成 -->
+	<target name="dist" >
+		<mkdir dir="${war.home}"/>
+		<jar destfile="${war.home}/${web-app.name}.war" basedir="build/deploy" />
+	</target>
+<!-- ↑↑↑ ■Add WARファイル作成■ ↑↑↑ -->              	
+              	
+</project>

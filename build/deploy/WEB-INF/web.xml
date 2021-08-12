@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://JAVA.sun.com/xml/ns/j2ee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" 
+version="2.4">
+
+	<filter>
+		<filter-name>AuthFilter</filter-name>
+		<filter-class>AuthFilter1</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/MonthView</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/NewSchedule</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/ScheduleInsert</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/ScheduleView</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/EditSchedule</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/ScheduleUpdate</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+	<url-pattern>/DeleteCheck</url-pattern>
+	</filter-mapping>
+
+	 <filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/ScheduleDelete</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/NewUser</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/CreateUserCheck</url-pattern>
+	</filter-mapping>
+
+
+	<servlet>
+		<servlet-name>MonthView</servlet-name>
+		<servlet-class>MonthView1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MonthView</servlet-name>
+		<url-pattern>/MonthView</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>NewSchedule</servlet-name>
+		<servlet-class>NewSchedule1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>NewSchedule</servlet-name>
+		<url-pattern>/NewSchedule</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ScheduleInsert</servlet-name>
+		<servlet-class>ScheduleInsert1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ScheduleInsert</servlet-name>
+		<url-pattern>/ScheduleInsert</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ScheduleView</servlet-name>
+		<servlet-class>ScheduleView1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ScheduleView</servlet-name>
+		<url-pattern>/ScheduleView</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EditSchedule</servlet-name>
+		<servlet-class>EditSchedule1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EditSchedule</servlet-name>
+		<url-pattern>/EditSchedule</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ScheduleUpdate</servlet-name>
+		<servlet-class>ScheduleUpdate1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ScheduleUpdate</servlet-name>
+		<url-pattern>/ScheduleUpdate</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DeleteCheck</servlet-name>
+		<servlet-class>DeleteCheck1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DeleteCheck</servlet-name>
+		<url-pattern>/DeleteCheck</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ScheduleDelete</servlet-name>
+		<servlet-class>ScheduleDelete1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ScheduleDelete</servlet-name>
+		<url-pattern>/ScheduleDelete</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LoginPage</servlet-name>
+		<servlet-class>LoginPage1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LoginPage</servlet-name>
+		<url-pattern>/LoginPage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>LoginCheck</servlet-name>
+		<servlet-class>LoginCheck1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LoginCheck</servlet-name>
+		<url-pattern>/LoginCheck</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>NewUser</servlet-name>
+		<servlet-class>NewUser1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>NewUser</servlet-name>
+		<url-pattern>/NewUser</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>CreateUserCheck</servlet-name>
+		<servlet-class>CreateUserCheck1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CreateUserCheck</servlet-name>
+		<url-pattern>/CreateUserCheck</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>Logout1</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+  
+  </web-app>
+
